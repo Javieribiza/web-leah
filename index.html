@@ -31,7 +31,6 @@ body{font-family:"Inter",sans-serif;background:#041624;color:#fff;overflow-x:hid
     rgba(4,22,36,0.92) 100%
   );
 }
-
 .ondas{position:absolute;bottom:0;left:0;right:0;height:110px;overflow:hidden}
 .onda{position:absolute;bottom:0;width:200%;height:90px;border-radius:50% 50% 0 0;animation:ondear 7s ease-in-out infinite}
 .onda:nth-child(1){background:rgba(0,200,224,0.07)}
@@ -41,233 +40,107 @@ body{font-family:"Inter",sans-serif;background:#041624;color:#fff;overflow-x:hid
   0%,100%{transform:translateX(-25%) scaleY(1)}
   50%{transform:translateX(0%) scaleY(1.2)}
 }
-
 .hero-content{position:relative;z-index:1;text-align:center;max-width:580px;width:100%}
-
 .badge{
-  display:inline-block;
-  font-size:0.68rem;
-  letter-spacing:0.30em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.80);
-  border:1px solid rgba(255,255,255,0.25);
-  border-radius:50px;
-  padding:8px 20px;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,0.10);
-  margin-bottom:28px;
+  display:inline-block;font-size:0.68rem;letter-spacing:0.30em;text-transform:uppercase;
+  color:rgba(255,255,255,0.80);border:1px solid rgba(255,255,255,0.25);border-radius:50px;
+  padding:8px 20px;backdrop-filter:blur(10px);background:rgba(255,255,255,0.10);margin-bottom:28px;
 }
-
 h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(3rem,11vw,5rem);
-  font-weight:700;
-  letter-spacing:0.06em;
-  line-height:1.05;
-  text-shadow:0 2px 30px rgba(0,0,0,0.4);
-  color:#fff;
+  font-family:"Playfair Display",serif;font-size:clamp(3rem,11vw,5rem);
+  font-weight:700;letter-spacing:0.06em;line-height:1.05;
+  text-shadow:0 2px 30px rgba(0,0,0,0.4);color:#fff;
 }
-h1 em{
-  font-style:italic;
-  font-weight:400;
-  color:#22d4ef;
-  display:block;
-  font-size:clamp(2.6rem,10vw,4.4rem);
-}
-
+h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:clamp(2.6rem,10vw,4.4rem)}
 .hero-desc{
-  margin-top:22px;
-  font-size:clamp(0.90rem,2.5vw,1.05rem);
-  font-weight:300;
-  line-height:1.85;
-  color:rgba(255,255,255,0.82);
-  max-width:460px;
-  margin-left:auto;margin-right:auto;
+  margin-top:22px;font-size:clamp(0.90rem,2.5vw,1.05rem);font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,0.82);max-width:460px;margin-left:auto;margin-right:auto;
   text-shadow:0 1px 10px rgba(0,0,0,0.5);
 }
-
 .linea{width:50px;height:2px;background:linear-gradient(90deg,transparent,#22d4ef,transparent);margin:30px auto}
-
 .scroll-hint{
-  margin-top:30px;
-  font-size:0.70rem;
-  letter-spacing:0.25em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.45);
-  animation:parpadeo 2.5s ease-in-out infinite;
+  margin-top:30px;font-size:0.70rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);animation:parpadeo 2.5s ease-in-out infinite;
 }
 @keyframes parpadeo{0%,100%{opacity:0.45}50%{opacity:0.90}}
 
 /* ══ SERVICIOS ══ */
 .servicios-section{
-  position:relative;
-  padding:90px 24px;
-  background:url("piscina2.jpeg") center center/cover no-repeat;
+  position:relative;padding:90px 24px;
+  background:url("piscina_2.jpeg") center center/cover no-repeat;
 }
-.servicios-section::before{
-  content:"";
-  position:absolute;inset:0;
-  background:rgba(4,18,30,0.82);
-}
-
-.section-label{
-  text-align:center;
-  font-size:0.68rem;
-  letter-spacing:0.32em;
-  text-transform:uppercase;
-  color:#22d4ef;
-  margin-bottom:12px;
-  position:relative;z-index:1;
-}
-
-.section-title{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(1.9rem,5vw,2.8rem);
-  font-weight:400;
-  text-align:center;
-  margin-bottom:10px;
-  color:#fff;
-  position:relative;z-index:1;
-}
-
-.section-sub{
-  text-align:center;
-  font-size:0.88rem;
-  font-weight:300;
-  color:rgba(255,255,255,0.52);
-  max-width:420px;
-  margin:0 auto 50px;
-  line-height:1.75;
-  position:relative;z-index:1;
-}
-
-.servicios-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-  max-width:900px;
-  margin:0 auto;
-  position:relative;z-index:1;
-}
-
+.servicios-section::before{content:"";position:absolute;inset:0;background:rgba(4,18,30,0.82)}
+.section-label{text-align:center;font-size:0.68rem;letter-spacing:0.32em;text-transform:uppercase;color:#22d4ef;margin-bottom:12px;position:relative;z-index:1}
+.section-title{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,5vw,2.8rem);font-weight:400;text-align:center;margin-bottom:10px;color:#fff;position:relative;z-index:1}
+.section-sub{text-align:center;font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.52);max-width:420px;margin:0 auto 50px;line-height:1.75;position:relative;z-index:1}
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:900px;margin:0 auto;position:relative;z-index:1}
 .servicio{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:20px;
-  backdrop-filter:blur(16px);
-  padding:32px 26px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;backdrop-filter:blur(16px);padding:32px 26px;
   transition:transform 0.25s,background 0.25s,border-color 0.25s;
 }
-.servicio:hover{
-  transform:translateY(-5px);
-  background:rgba(255,255,255,0.10);
-  border-color:rgba(34,212,239,0.30);
-}
+.servicio:hover{transform:translateY(-5px);background:rgba(255,255,255,0.10);border-color:rgba(34,212,239,0.30)}
+.servicio-ico{width:52px;height:52px;border-radius:14px;background:rgba(34,212,239,0.12);border:1px solid rgba(34,212,239,0.25);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
+.servicio h3{font-family:"Playfair Display",serif;font-size:1.18rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
+.servicio p{font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.78}
+.servicio-tag{display:inline-block;margin-top:16px;padding:4px 13px;border-radius:50px;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;background:rgba(34,212,239,0.10);border:1px solid rgba(34,212,239,0.22);color:#22d4ef}
 
-.servicio-ico{
-  width:52px;height:52px;
-  border-radius:14px;
-  background:rgba(34,212,239,0.12);
-  border:1px solid rgba(34,212,239,0.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;
-  margin-bottom:18px;
+/* ══ CASOS ══ */
+.casos-section{background:linear-gradient(180deg,#041624 0%,#051e30 100%);padding:90px 24px}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.caso{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);
+  border-radius:20px;padding:28px 24px;text-align:center;
+  transition:transform 0.25s,background 0.25s;
 }
-
-.servicio h3{
-  font-family:"Playfair Display",serif;
-  font-size:1.18rem;
-  font-weight:700;
-  color:#fff;
-  margin-bottom:10px;
-  line-height:1.3;
+.caso:hover{transform:translateY(-4px);background:rgba(255,255,255,0.09)}
+.caso-ico{font-size:36px;margin-bottom:16px}
+.caso h3{font-family:"Playfair Display",serif;font-size:1.10rem;font-weight:700;color:#fff;margin-bottom:10px}
+.caso p{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.60);line-height:1.70;margin-bottom:20px}
+.btn-caso{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:13px 20px;border-radius:50px;
+  background:linear-gradient(135deg,#25d366,#128c4a);
+  color:#fff;font-family:"Inter",sans-serif;font-size:0.85rem;
+  font-weight:500;text-decoration:none;letter-spacing:0.03em;
+  transition:transform 0.18s,box-shadow 0.18s;
+  box-shadow:0 4px 20px rgba(37,211,102,0.30);
 }
+.btn-caso:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,0.50)}
+.btn-caso:active{transform:scale(0.97)}
 
-.servicio p{
-  font-size:0.85rem;
-  font-weight:300;
-  color:rgba(255,255,255,0.65);
-  line-height:1.78;
+/* urgencia */
+.caso-urgencia{border-color:rgba(239,68,68,0.25)}
+.btn-urgencia{
+  background:linear-gradient(135deg,#ef4444,#b91c1c);
+  box-shadow:0 4px 20px rgba(239,68,68,0.30);
+  animation:pulso 2.5s ease-in-out infinite;
 }
-
-.servicio-tag{
-  display:inline-block;
-  margin-top:16px;
-  padding:4px 13px;
-  border-radius:50px;
-  font-size:0.68rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  background:rgba(34,212,239,0.10);
-  border:1px solid rgba(34,212,239,0.22);
-  color:#22d4ef;
+.btn-urgencia:hover{box-shadow:0 6px 28px rgba(239,68,68,0.55);animation:none}
+@keyframes pulso{
+  0%,100%{box-shadow:0 4px 20px rgba(239,68,68,0.30)}
+  50%{box-shadow:0 4px 30px rgba(239,68,68,0.60)}
 }
 
 /* ══ CONTACTO ══ */
-.contacto-section{
-  background:#030f1a;
-  padding:90px 24px;
-  text-align:center;
-}
-
-.contacto-desc{
-  font-size:0.92rem;
-  font-weight:300;
-  color:rgba(255,255,255,0.52);
-  line-height:1.80;
-  max-width:400px;
-  margin:0 auto 44px;
-}
-
-.botones{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  max-width:400px;
-  margin:0 auto;
-}
-
+.contacto-section{background:#030f1a;padding:90px 24px;text-align:center}
+.contacto-desc{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.52);line-height:1.80;max-width:400px;margin:0 auto 44px}
+.botones{display:flex;flex-direction:column;gap:14px;max-width:400px;margin:0 auto}
 .btn{
   display:flex;align-items:center;justify-content:center;gap:12px;
-  padding:19px 28px;
-  border-radius:50px;
-  font-family:"Inter",sans-serif;
-  font-size:0.97rem;font-weight:500;
-  text-decoration:none;
-  letter-spacing:0.04em;
-  transition:transform 0.18s,box-shadow 0.18s;
+  padding:19px 28px;border-radius:50px;font-family:"Inter",sans-serif;
+  font-size:0.97rem;font-weight:500;text-decoration:none;
+  letter-spacing:0.04em;transition:transform 0.18s,box-shadow 0.18s;
 }
 .btn:active{transform:scale(0.97)}
-
-.btn-wa{
-  background:linear-gradient(135deg,#25d366,#128c4a);
-  color:#fff;
-  box-shadow:0 6px 28px rgba(37,211,102,0.38);
-  font-size:1.02rem;
-  padding:21px 28px;
-}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c4a);color:#fff;box-shadow:0 6px 28px rgba(37,211,102,0.38);font-size:1.02rem;padding:21px 28px}
 .btn-wa:hover{box-shadow:0 10px 36px rgba(37,211,102,0.60);transform:translateY(-2px)}
-
-.btn-email{
-  background:rgba(255,255,255,0.07);
-  border:1.5px solid rgba(255,255,255,0.18);
-  color:#fff;
-}
+.btn-email{background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.18);color:#fff}
 .btn-email:hover{background:rgba(255,255,255,0.13);transform:translateY(-2px)}
 
 /* ══ PIE ══ */
-.pie{
-  background:#020c14;
-  padding:32px 24px;
-  text-align:center;
-}
-.pie p{
-  font-size:0.70rem;
-  color:rgba(255,255,255,0.25);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  line-height:2.2;
-}
+.pie{background:#020c14;padding:32px 24px;text-align:center}
+.pie p{font-size:0.70rem;color:rgba(255,255,255,0.25);letter-spacing:0.18em;text-transform:uppercase;line-height:2.2}
 .pie span{color:rgba(34,212,239,0.50)}
 </style>
 </head>
@@ -298,7 +171,6 @@ h1 em{
   <p class="section-label">¿Qué hacemos?</p>
   <h2 class="section-title">Nuestros Servicios</h2>
   <p class="section-sub">Soluciones completas para que tu piscina esté siempre en perfecto estado, sin preocupaciones.</p>
-
   <div class="servicios-grid">
     <div class="servicio">
       <div class="servicio-ico">🔧</div>
@@ -315,7 +187,7 @@ h1 em{
     <div class="servicio">
       <div class="servicio-ico">🔍</div>
       <h3>Servicio Técnico Especializado</h3>
-      <p>Localización y reparación de fugas, fontanería, electricidad y reparación de maquinaria. Resolvemos problemas complejos con rapidez y profesionalidad.</p>
+      <p>Localización y reparación de fugas, fontanería, electricidad y reparación de maquinaria. Resolvemos problemas con rapidez y profesionalidad.</p>
       <span class="servicio-tag">Reparaciones</span>
     </div>
     <div class="servicio">
@@ -324,6 +196,52 @@ h1 em{
       <p>Instalación de iluminación LED subacuática y sistemas de control remoto. Transforma tu piscina en un espacio moderno y espectacular de noche.</p>
       <span class="servicio-tag">Modernización</span>
     </div>
+  </div>
+</div>
+
+<!-- ══ CASOS ══ -->
+<div class="casos-section">
+  <p class="section-label">¿Tienes un problema?</p>
+  <h2 class="section-title">Cuéntanoslo</h2>
+  <p class="section-sub">Selecciona tu situación y escríbenos directamente por WhatsApp. Te respondemos enseguida.</p>
+  <div class="casos-grid">
+
+    <div class="caso">
+      <div class="caso-ico">🟢</div>
+      <h3>Agua Verde</h3>
+      <p>El agua ha cambiado de color y no sabes por qué. Lo analizamos y solucionamos rápido.</p>
+      <a class="btn-caso" href="https://wa.me/34661764002?text=Hola%2C%20tengo%20el%20agua%20de%20la%20piscina%20verde%20y%20necesito%20ayuda." target="_blank">
+        💬 Escríbenos
+      </a>
+    </div>
+
+    <div class="caso">
+      <div class="caso-ico">⚙️</div>
+      <h3>Problemas con el Motor</h3>
+      <p>El motor hace ruido, no arranca o funciona mal. Diagnóstico y reparación en el menor tiempo posible.</p>
+      <a class="btn-caso" href="https://wa.me/34661764002?text=Hola%2C%20tengo%20un%20problema%20con%20el%20motor%20de%20mi%20piscina." target="_blank">
+        💬 Escríbenos
+      </a>
+    </div>
+
+    <div class="caso">
+      <div class="caso-ico">🧪</div>
+      <h3>Problemas con el Cloro</h3>
+      <p>El agua pica en los ojos, huele demasiado o el cloro no se estabiliza. Te ayudamos a equilibrarlo.</p>
+      <a class="btn-caso" href="https://wa.me/34661764002?text=Hola%2C%20tengo%20problemas%20con%20el%20cloro%20de%20mi%20piscina." target="_blank">
+        💬 Escríbenos
+      </a>
+    </div>
+
+    <div class="caso caso-urgencia">
+      <div class="caso-ico">🚨</div>
+      <h3>Avería Urgente</h3>
+      <p>Necesitas asistencia inmediata. Estamos disponibles para emergencias en toda la isla de Ibiza.</p>
+      <a class="btn-urgencia btn-caso" href="https://wa.me/34661764002?text=🚨%20URGENTE%3A%20Necesito%20asistencia%20t%C3%A9cnica%20urgente%20para%20mi%20piscina." target="_blank">
+        🚨 Urgencia 24h
+      </a>
+    </div>
+
   </div>
 </div>
 
