@@ -1,150 +1,108 @@
 import streamlit as st
 
-# Configuración de la pestaña
+# Configuración premium
 st.set_page_config(
-    page_title="Piscinas Leah Ibiza | Servicio Premium",
+    page_title="Piscinas Leah Ibiza | Luxury Pool Services",
     page_icon="🏊‍♂️",
     layout="centered"
 )
 
-# --- DISEÑO DE LUJO (CSS AVANZADO) ---
+# --- DISEÑO DE ALTO NIVEL (CSS) ---
 st.markdown("""
     <style>
-    /* Imagen de fondo de piscina que cubre toda la pantalla */
     .stApp {
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                    url('https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&q=80&w=2000');
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                    url('https://r.jina.ai/i/9f9e31d457634f1a8c3d8d64115e348f'); /* Tu imagen de la villa */
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
 
-    /* Caja de cristal para el contenido */
-    .glass-card {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 20px;
+    .glass-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 30px;
-        margin-bottom: 20px;
+        padding: 40px;
         color: white;
-    }
-
-    h1, h2, h3 {
-        color: #ffffff;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         text-align: center;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     }
 
-    /* Botones Premium */
+    .service-card {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid #00d4ff;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
     .stButton>button {
         width: 100%;
-        border-radius: 12px;
+        border-radius: 50px;
         height: 3.5em;
         background: linear-gradient(135deg, #00d4ff 0%, #004a99 100%);
         color: white;
         font-weight: bold;
         border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;
         font-size: 18px;
-    }
-    
-    .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,212,255,0.4);
-        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
-    /* Botón de Urgencia */
     .urgent-btn>div>button {
         background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%) !important;
-        height: 4.5em !important;
-        font-size: 20px !important;
     }
-
-    .service-box {
-        background: rgba(0, 0, 0, 0.3);
-        padding: 15px;
-        border-radius: 10px;
-        margin: 10px 0;
-        border-left: 4px solid #00d4ff;
-    }
+    
+    h1 { font-size: 3em; text-shadow: 3px 3px 6px rgba(0,0,0,0.9); }
     </style>
     """, unsafe_allow_html=True)
 
-# --- CONTENIDO DE LA PÁGINA ---
+# --- ESTRUCTURA DE LA WEB ---
 
-# Espaciado superior
-st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown('<div class="glass-container">', unsafe_allow_html=True)
+st.markdown("<h1>PISCINAS LEAH IBIZA</h1>", unsafe_allow_html=True)
+st.markdown("<p style='font-size: 1.5em; color: #00d4ff;'>Mantenimiento de Excelencia & Servicio Técnico Especializado</p>", unsafe_allow_html=True)
+st.write("---")
 
-with st.container():
-    st.markdown("""
-        <div class="glass-card">
-            <h1>PISCINAS LEAH IBIZA</h1>
-            <p style='text-align: center; font-size: 1.3em; font-weight: bold; color: #00d4ff;'>
-                Mantenimiento de Excelencia & Servicio Técnico Especializado
-            </p>
-            <p style='text-align: center; font-style: italic;'>
-                Expertos en el cuidado de aguas cristalinas en toda la isla de Ibiza.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+<div style='font-size: 1.1em; line-height: 1.6;'>
+Especialistas en la gestión integral de instalaciones acuáticas de alto nivel. 
+Combinamos tecnología de vanguardia con un servicio técnico riguroso para garantizar 
+la perfección en cada gota de agua.
+</div>
+""", unsafe_allow_html=True)
 
-# Sección de Servicios Detallada
-with st.container():
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.subheader("Nuestros Servicios Profesionales")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-            <div class='service-box'>
-                <strong>💎 Mantenimiento Integral</strong><br>
-                Limpieza profunda, control químico y supervisión técnica constante.
-            </div>
-            <div class='service-box'>
-                <strong>🌊 Tratamiento de Sal e Hidrólisis</strong><br>
-                Especialistas en sistemas modernos para el máximo confort.
-            </div>
-        """, unsafe_allow_html=True)
-        
-    with col2:
-        st.markdown("""
-            <div class='service-box'>
-                <strong>🔧 Servicio Técnico Oficial</strong><br>
-                Reparación de maquinaria, bombas y localización de fugas.
-            </div>
-            <div class='service-box'>
-                <strong>✨ Iluminación y Reformas</strong><br>
-                Actualización de focos LED y mejoras estéticas.
-            </div>
-        """, unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+st.write("<br>", unsafe_allow_html=True)
 
-# Botones de Contacto
-st.markdown("<h3 style='color: white;'>¿Hablamos de su piscina?</h3>", unsafe_allow_html=True)
+# SERVICIOS TÉCNICOS
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("""<div class='service-card'><strong>💎 Mantenimiento Preventivo</strong><br>Control químico automatizado, limpieza de fondos y gestión de filtración.</div>""", unsafe_allow_html=True)
+    st.markdown("""<div class='service-card'><strong>🧪 Tratamiento Avanzado</strong><br>Expertos en electrólisis salina, hidrólisis y desinfección UV.</div>""", unsafe_allow_html=True)
+with col2:
+    st.markdown("""<div class='service-card'><strong>🔧 Ingeniería de Reparación</strong><br>Localización de fugas estructurales y sustitución de bombas de alta eficiencia.</div>""", unsafe_allow_html=True)
+    st.markdown("""<div class='service-card'><strong>💡 Optimización Energética</strong><br>Instalación de iluminación LED subacuática y sistemas de domótica.</div>""", unsafe_allow_html=True)
+
+st.write("---")
+
+# BOTONES (Ahora con el número 661 76 44 02 funcionando)
+st.subheader("Contacto Directo")
 c1, c2 = st.columns(2)
-with c1:
-    if st.button("💬 WhatsApp Directo"):
-        st.components.v1.html("<script>window.open('https://wa.me/34661764402?text=Hola,%20solicito%20información%20profesional')</script>")
-with c2:
-    if st.button("✉️ Correo Electrónico"):
-        st.components.v1.html("<script>window.location.href='mailto:piscinasleah@gmail.com'</script>")
 
-# Botón de Urgencia Destacado
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown('<div class="urgent-btn">', unsafe_allow_html=True)
-if st.button("🚨 AVISO DE AVERÍA URGENTE 24H"):
-    st.components.v1.html("<script>window.open('https://wa.me/34661764402?text=URGENTE:%20Avería%20en%20piscina')</script>")
+with c1:
+    # Botón WhatsApp
+    st.markdown(f'<a href="https://wa.me/34661764402?text=Hola%20Piscinas%20Leah,%20deseo%20solicitar%20un%20presupuesto%20profesional" target="_blank"><button style="width:100%; border-radius:50px; height:3.5em; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color:white; font-weight:bold; border:none; cursor:pointer;">💬 WhatsApp</button></a>', unsafe_allow_html=True)
+
+with c2:
+    # Botón Email
+    st.markdown(f'<a href="mailto:piscinasleah@gmail.com"><button style="width:100%; border-radius:50px; height:3.5em; background: linear-gradient(135deg, #00d4ff 0%, #004a99 100%); color:white; font-weight:bold; border:none; cursor:pointer;">✉️ Email</button></a>', unsafe_allow_html=True)
+
+st.write("<br>", unsafe_allow_html=True)
+
+# BOTÓN URGENTE
+st.markdown(f'<div class="urgent-btn"><a href="https://wa.me/34661764402?text=URGENTE:%20Aviso%20de%20avería" target="_blank"><button style="width:100%; border-radius:12px; height:4.5em; background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%); color:white; font-weight:bold; border:none; font-size:20px; cursor:pointer;">🚨 ASISTENCIA TÉCNICA URGENTE</button></a></div>', unsafe_allow_html=True)
+
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Pie de página
-st.markdown("""
-    <br><br>
-    <div style='text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9em; padding: 20px;'>
-        © 2026 Piscinas Leah Ibiza | Calidad y Compromiso.<br>
-        📍 Servicio en toda la isla.
-    </div>
-""", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: white; padding-top: 20px;'>© 2024 Piscinas Leah Ibiza | Servicio Oficial 24h</p>", unsafe_allow_html=True)
