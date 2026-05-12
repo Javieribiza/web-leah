@@ -1,1 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Presupuesto — Piscinas Leah Ibiza</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#041624 0%,#0a3d5c 60%,#0d6e8a 100%);min-height:100vh;padding:30px 20px;color:#fff}
+.container{max-width:520px;margin:0 auto}
+/* IDIOMA */
+.lang-bar{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+.lang-btn{padding:7px 18px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.65);font-family:'Inter',sans-serif;font-size:0.80rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.05em}
+.lang-btn.activo{background:rgba(34,212,239,0.18);border-color:#22d4ef;color:#fff}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,6vw,2.6rem);text-align:center;margin-bottom:6px;color:#fff}
+h1 span{color:#22d4ef}
+.sub{text-align:center;font-size:0.78rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:30px}
+.card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;backdrop-filter:blur(16px);padding:28px 24px;margin-bottom:16px}
+.card h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:18px;color:#22d4ef}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo label{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65)}
+.campo input{background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.20);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;width:100%}
+.campo input:focus{border-color:#22d4ef}
+.campo input::placeholder{color:rgba(255,255,255,0.35)}
+.vol-display{text-align:center;padding:12px;background:rgba(34,212,239,0.10);border:1px solid rgba(34,212,239,0.25);border-radius:10px;font-size:0.88rem;color:#22d4ef;margin-bottom:4px}
+.opciones{display:flex;flex-direction:column;gap:10px}
+.opcion{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:10px;cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.opcion:hover{background:rgba(255,255,255,0.10);border-color:rgba(34,212,239,0.30)}
+.opcion input[type=checkbox]{width:18px;height:18px;accent-color:#22d4ef;cursor:pointer;flex-shrink:0}
+.opcion-texto{flex:1}
+.opcion-texto strong{display:block;font-size:0.88rem;font-weight:500;color:#fff}
+.opcion-texto span{font-size:0.75rem;color:rgba(255,255,255,0.50)}
+.opcion-precio{font-size:0.82rem;font-weight:500;color:#22d4ef;flex-shrink:0;white-space:nowrap}
+.frecuencia{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.frec-btn{padding:10px 8px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;color:rgba(255,255,255,0.70);font-family:'Inter',sans-serif;font-size:0.80rem;font-weight:500;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4}
+.frec-btn.activo{background:rgba(34,212,239,0.18);border-color:#22d4ef;color:#fff}
+.resultado{background:rgba(34,212,239,0.10);border:1.5px solid rgba(34,212,239,0.30);border-radius:20px;padding:28px 24px;text-align:center;margin-bottom:16px;display:none}
+.resultado.visible{display:block}
+.precio-desde{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:4px}
+.precio-num{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,9vw,3.6rem);font-weight:700;color:#22d4ef;line-height:1}
+.precio-mes{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:18px}
+.desglose{text-align:left;background:rgba(0,0,0,0.15);border-radius:12px;padding:14px 16px;margin-bottom:18px}
+.desglose-item{display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;padding:5px 0;color:rgba(255,255,255,0.75);border-bottom:1px solid rgba(255,255,255,0.07)}
+.desglose-item:last-child{border:none;font-weight:600;color:#fff;padding-top:10px;font-size:0.92rem}
+.aviso{font-size:0.72rem;color:rgba(255,255,255,0.42);font-style:italic;margin-bottom:18px;line-height:1.7}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px;border-radius:50px;background:linear-gradient(135deg,#25d366,#128c4a);color:#fff;font-family:'Inter',sans-serif;font-size:0.97rem;font-weight:500;text-decoration:none;border:none;cursor:pointer;box-shadow:0 6px 28px rgba(37,211,102,0.40);transition:transform 0.18s,box-shadow 0.18s}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,0.55)}
+.btn-calcular{width:100%;padding:18px;border-radius:50px;background:linear-gradient(135deg,#22d4ef,#0096b0);color:#fff;font-family:'Inter',sans-serif;font-size:1rem;font-weight:500;border:none;cursor:pointer;box-shadow:0 6px 28px rgba(34,212,239,0.35);transition:transform 0.18s;margin-top:8px;letter-spacing:0.03em}
+.btn-calcular:hover{transform:translateY(-2px)}
+.btn-email{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:50px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.20);color:#fff;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-decoration:none;margin-top:10px;transition:transform 0.18s,background 0.18s}
+.btn-email:hover{transform:translateY(-2px);background:rgba(255,255,255,0.15)}
+.btn-group{display:flex;flex-direction:column;gap:0}
+.pie{text-align:center;font-size:0.70rem;color:rgba(255,255,255,0.30);margin-top:20px;letter-spacing:0.1em;line-height:2}
+</style>
+</head>
+<body>
+<div class="container">
 
+  <!-- SELECTOR IDIOMA -->
+  <div class="lang-bar">
+    <button class="lang-btn activo" onclick="setLang('es',this)">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="setLang('en',this)">🇬🇧 English</button>
+  </div>
+
+  <h1>PISCINAS <span>LEAH</span></h1>
+  <p class="sub" id="txt-sub">Calculadora de Presupuesto · Ibiza</p>
+
+  <!-- MEDIDAS -->
+  <div class="card">
+    <h2 id="txt-medidas">📐 Medidas de tu piscina</h2>
+    <div class="row">
+      <div class="campo">
+        <label id="txt-largo">Largo (m)</label>
+        <input type="number" id="largo" placeholder="Ej: 10" min="1" max="50" step="0.5" oninput="calcularVolumen()">
+      </div>
+      <div class="campo">
+        <label id="txt-ancho">Ancho (m)</label>
+        <input type="number" id="ancho" placeholder="Ej: 5" min="1" max="30" step="0.5" oninput="calcularVolumen()">
+      </div>
+      <div class="campo">
+        <label id="txt-prof">Prof. media (m)</label>
+        <input type="number" id="prof" placeholder="Ej: 1.5" min="0.5" max="5" step="0.1" oninput="calcularVolumen()">
+      </div>
+    </div>
+    <div class="vol-display" id="volDisplay">Introduce las medidas para ver el volumen</div>
+  </div>
+
+  <!-- FRECUENCIA -->
+  <div class="card">
+    <h2 id="txt-frec-titulo">📅 Frecuencia de mantenimiento</h2>
+    <div class="frecuencia">
+      <button class="frec-btn activo" id="btn-sem" onclick="setFrecuencia(this,1,0,'Semanal','Weekly')">
+        <span class="f-label">Semanal</span><br><small></small>
+      </button>
+      <button class="frec-btn" id="btn-quin" onclick="setFrecuencia(this,0.8,-20,'Quincenal','Fortnightly')">
+        <span class="f-label">Quincenal</span><br><small>-20%</small>
+      </button>
+      <button class="frec-btn" id="btn-men" onclick="setFrecuencia(this,0.65,-35,'Mensual','Monthly')">
+        <span class="f-label">Mensual</span><br><small>-35%</small>
+      </button>
+    </div>
+  </div>
+
+  <!-- EXTRAS -->
+  <div class="card">
+    <h2 id="txt-extras-titulo">✨ Extras y servicios adicionales</h2>
+    <div class="opciones">
+      <label class="opcion">
+        <input type="checkbox" id="salina" onchange="recalcular()">
+        <div class="opcion-texto">
+          <strong id="txt-salina-title">Electrólisis Salina</strong>
+          <span id="txt-salina-desc">Sistema sin cloro — agua más natural</span>
+        </div>
+        <span class="opcion-precio">+30€/mes</span>
+      </label>
+      <label class="opcion">
+        <input type="checkbox" id="jacuzzi" onchange="recalcular()">
+        <div class="opcion-texto">
+          <strong id="txt-jacuzzi-title">Jacuzzi o Spa anexo</strong>
+          <span id="txt-jacuzzi-desc">Mantenimiento del spa adicional</span>
+        </div>
+        <span class="opcion-precio">+50€/mes</span>
+      </label>
+      <label class="opcion">
+        <input type="checkbox" id="led" onchange="recalcular()">
+        <div class="opcion-texto">
+          <strong id="txt-led-title">Iluminación LED</strong>
+          <span id="txt-led-desc">Revisión y mantenimiento de LEDs</span>
+        </div>
+        <span class="opcion-precio">+20€/mes</span>
+      </label>
+      <label class="opcion">
+        <input type="checkbox" id="informe" checked onchange="recalcular()">
+        <div class="opcion-texto">
+          <strong id="txt-informe-title">Informe mensual con fotos</strong>
+          <span id="txt-informe-desc">Recibe el estado de tu piscina en WhatsApp</span>
+        </div>
+        <span class="opcion-precio" style="color:#22d4ef" id="txt-gratis">GRATIS</span>
+      </label>
+    </div>
+  </div>
+
+  <button class="btn-calcular" id="btn-calcular" onclick="mostrarResultado()">🔍 Calcular mi presupuesto</button>
+
+  <!-- RESULTADO -->
+  <div class="resultado" id="resultado">
+    <p class="precio-desde" id="txt-desde">Presupuesto orientativo desde</p>
+    <div class="precio-num" id="precioNum">—</div>
+    <p class="precio-mes" id="txt-mes">euros / mes (IVA no incluido)</p>
+    <div class="desglose" id="desglose"></div>
+    <p class="aviso" id="txt-aviso">* Presupuesto orientativo sujeto a visita técnica gratuita. El precio final puede variar según el estado real de la instalación.</p>
+    <div class="btn-group">
+      <a class="btn-wa" id="btnWa" href="#" target="_blank">
+        💬 <span id="txt-btn-wa">Solicitar presupuesto por WhatsApp</span>
+      </a>
+      <a class="btn-email" id="btnEmail" href="#" target="_blank">
+        📧 <span id="txt-btn-email">Enviar presupuesto por Email</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="pie">📍 San José · Ibiza · Piscinas Leah · 661 764 002</p>
+</div>
+
+<script>
+// ── TRADUCCIONES ──
+const T = {
+  es: {
+    sub: "Calculadora de Presupuesto · Ibiza",
+    medidas: "📐 Medidas de tu piscina",
+    largo: "Largo (m)", ancho: "Ancho (m)", prof: "Prof. media (m)",
+    volVacio: "Introduce las medidas para ver el volumen",
+    volOk: v => `Volumen aproximado: ${v.toFixed(1)} m³`,
+    frecTitulo: "📅 Frecuencia de mantenimiento",
+    frecSem: "Semanal", frecQuin: "Quincenal", frecMen: "Mensual",
+    extrasTitulo: "✨ Extras y servicios adicionales",
+    salinaT: "Electrólisis Salina", salinaD: "Sistema sin cloro — agua más natural",
+    jacuzziT: "Jacuzzi o Spa anexo", jacuzziD: "Mantenimiento del spa adicional",
+    ledT: "Iluminación LED", ledD: "Revisión y mantenimiento de LEDs",
+    informeT: "Informe mensual con fotos", informeD: "Recibe el estado de tu piscina en WhatsApp",
+    gratis: "GRATIS",
+    btnCalc: "🔍 Calcular mi presupuesto",
+    desde: "Presupuesto orientativo desde",
+    mes: "euros / mes (IVA no incluido)",
+    aviso: "* Presupuesto orientativo sujeto a visita técnica gratuita. El precio final puede variar según el estado real de la instalación.",
+    btnWa: "Solicitar presupuesto por WhatsApp",
+    alerta: "Por favor, introduce las medidas de tu piscina primero.",
+    total: "TOTAL ESTIMADO",
+    tam: { p:"Piscina pequeña", m:"Piscina mediana", g:"Piscina grande", v:"Villa de lujo" },
+    frec: { s:"Semanal", q:"Quincenal", men:"Mensual" },
+    btnEmail: "Enviar presupuesto por Email",
+    emailSubject: "Solicitud de presupuesto — Piscinas Leah Ibiza",
+    emailMsg: (l,a,p,vol,frec,total) =>
+      `Hola Piscinas Leah,\n\nHe calculado el presupuesto en vuestra web y me gustaría confirmarlo:\n\nPiscina: ${l}m × ${a}m × ${p}m (${vol} m³)\nFrecuencia: ${frec}\nPresupuesto estimado: ${total}€/mes\n\n¿Podéis contactarme para confirmar el presupuesto con una visita gratuita?\n\nGracias`,
+    waMsg: (l,a,p,vol,frec,total) =>
+      `Hola Piscinas Leah 👋\n\nHe calculado el presupuesto en vuestra web:\n\n📐 Piscina: ${l}m × ${a}m × ${p}m (${vol} m³)\n📅 Frecuencia: ${frec}\n💶 Presupuesto estimado: ${total}€/mes\n\n¿Podéis confirmarme el precio con una visita gratuita? ¡Gracias!`
+  },
+  en: {
+    sub: "Quote Calculator · Ibiza",
+    medidas: "📐 Your pool measurements",
+    largo: "Length (m)", ancho: "Width (m)", prof: "Avg depth (m)",
+    volVacio: "Enter measurements to see volume",
+    volOk: v => `Approximate volume: ${v.toFixed(1)} m³`,
+    frecTitulo: "📅 Maintenance frequency",
+    frecSem: "Weekly", frecQuin: "Fortnightly", frecMen: "Monthly",
+    extrasTitulo: "✨ Extras & additional services",
+    salinaT: "Salt Electrolysis", salinaD: "Chlorine-free system — more natural water",
+    jacuzziT: "Jacuzzi or Spa", jacuzziD: "Additional spa maintenance",
+    ledT: "LED Lighting", ledD: "LED review and maintenance",
+    informeT: "Monthly photo report", informeD: "Receive your pool status on WhatsApp",
+    gratis: "FREE",
+    btnCalc: "🔍 Calculate my quote",
+    desde: "Estimated quote from",
+    mes: "euros / month (VAT not included)",
+    aviso: "* Estimated quote subject to a free technical visit. The final price may vary depending on the actual condition of the installation.",
+    btnWa: "Request a quote via WhatsApp",
+    alerta: "Please enter your pool measurements first.",
+    total: "TOTAL ESTIMATE",
+    tam: { p:"Small pool", m:"Medium pool", g:"Large pool", v:"Luxury villa" },
+    frec: { s:"Weekly", q:"Fortnightly", men:"Monthly" },
+    btnEmail: "Send quote by Email",
+    emailSubject: "Quote request — Piscinas Leah Ibiza",
+    emailMsg: (l,a,p,vol,frec,total) =>
+      `Hello Piscinas Leah,\n\nI have calculated a quote on your website and would like to confirm it:\n\nPool: ${l}m × ${a}m × ${p}m (${vol} m³)\nFrequency: ${frec}\nEstimated quote: €${total}/month\n\nCould you contact me to confirm the quote with a free visit?\n\nThank you`,
+    waMsg: (l,a,p,vol,frec,total) =>
+      `Hello Piscinas Leah 👋\n\nI've calculated a quote on your website:\n\n📐 Pool: ${l}m × ${a}m × ${p}m (${vol} m³)\n📅 Frequency: ${frec}\n💶 Estimated quote: €${total}/month\n\nCould you confirm the price with a free visit? Thank you!`
+  }
+};
+
+let lang = 'es';
+let volumen = 0;
+let factorFrecuencia = 1;
+let descuentoFrecuencia = 0;
+let nombreFrecuenciaEs = 'Semanal';
+let nombreFrecuenciaEn = 'Weekly';
+
+function setLang(l, btn) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  document.documentElement.lang = l;
+  const t = T[l];
+  document.getElementById('txt-sub').textContent = t.sub;
+  document.getElementById('txt-medidas').textContent = t.medidas;
+  document.getElementById('txt-largo').textContent = t.largo;
+  document.getElementById('txt-ancho').textContent = t.ancho;
+  document.getElementById('txt-prof').textContent = t.prof;
+  document.getElementById('txt-frec-titulo').textContent = t.frecTitulo;
+  document.getElementById('txt-extras-titulo').textContent = t.extrasTitulo;
+  document.getElementById('txt-salina-title').textContent = t.salinaT;
+  document.getElementById('txt-salina-desc').textContent = t.salinaD;
+  document.getElementById('txt-jacuzzi-title').textContent = t.jacuzziT;
+  document.getElementById('txt-jacuzzi-desc').textContent = t.jacuzziD;
+  document.getElementById('txt-led-title').textContent = t.ledT;
+  document.getElementById('txt-led-desc').textContent = t.ledD;
+  document.getElementById('txt-informe-title').textContent = t.informeT;
+  document.getElementById('txt-informe-desc').textContent = t.informeD;
+  document.getElementById('txt-gratis').textContent = t.gratis;
+  document.getElementById('btn-calcular').textContent = t.btnCalc;
+  document.getElementById('txt-desde').textContent = t.desde;
+  document.getElementById('txt-mes').textContent = t.mes;
+  document.getElementById('txt-aviso').textContent = t.aviso;
+  document.getElementById('txt-btn-wa').textContent = t.btnWa;
+  document.getElementById('txt-btn-email').textContent = t.btnEmail;
+  // frecuencia labels
+  document.querySelector('#btn-sem .f-label').textContent = t.frecSem;
+  document.querySelector('#btn-quin .f-label').textContent = t.frecQuin;
+  document.querySelector('#btn-men .f-label').textContent = t.frecMen;
+  // vol display
+  if (volumen > 0) {
+    document.getElementById('volDisplay').textContent = t.volOk(volumen);
+  } else {
+    document.getElementById('volDisplay').textContent = t.volVacio;
+  }
+  if (document.getElementById('resultado').classList.contains('visible')) mostrarResultado();
+}
+
+function calcularVolumen() {
+  const l = parseFloat(document.getElementById('largo').value) || 0;
+  const a = parseFloat(document.getElementById('ancho').value) || 0;
+  const p = parseFloat(document.getElementById('prof').value) || 0;
+  volumen = l * a * p;
+  const t = T[lang];
+  document.getElementById('volDisplay').textContent = volumen > 0 ? t.volOk(volumen) : t.volVacio;
+  recalcular();
+}
+
+function setFrecuencia(btn, factor, descuento, nomEs, nomEn) {
+  document.querySelectorAll('.frec-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  factorFrecuencia = factor;
+  descuentoFrecuencia = descuento;
+  nombreFrecuenciaEs = nomEs;
+  nombreFrecuenciaEn = nomEn;
+  recalcular();
+}
+
+function getPrecioBase(vol) {
+  if (vol <= 0) return 0;
+  if (vol <= 30) return 150;
+  if (vol <= 60) return 220;
+  if (vol <= 100) return 320;
+  return 450;
+}
+
+function getTamano(vol, t) {
+  if (vol <= 30) return t.tam.p;
+  if (vol <= 60) return t.tam.m;
+  if (vol <= 100) return t.tam.g;
+  return t.tam.v;
+}
+
+function recalcular() {
+  if (document.getElementById('resultado').classList.contains('visible')) mostrarResultado();
+}
+
+function mostrarResultado() {
+  const t = T[lang];
+  if (volumen <= 0) { alert(t.alerta); return; }
+
+  const base = getPrecioBase(volumen);
+  const conFrecuencia = Math.round(base * factorFrecuencia);
+  let extras = 0;
+  const detalles = [];
+
+  detalles.push({ label: `${getTamano(volumen, t)} (${volumen.toFixed(1)} m³)`, valor: base });
+  if (descuentoFrecuencia < 0) {
+    detalles.push({ label: `${lang === 'es' ? nombreFrecuenciaEs : nombreFrecuenciaEn} (${descuentoFrecuencia}%)`, valor: conFrecuencia - base });
+  }
+  if (document.getElementById('salina').checked)  { extras += 30; detalles.push({ label: t.salinaT, valor: 30 }); }
+  if (document.getElementById('jacuzzi').checked) { extras += 50; detalles.push({ label: t.jacuzziT, valor: 50 }); }
+  if (document.getElementById('led').checked)     { extras += 20; detalles.push({ label: t.ledT, valor: 20 }); }
+  if (document.getElementById('informe').checked) { detalles.push({ label: t.informeT, valor: 0, gratis: true }); }
+
+  const total = conFrecuencia + extras;
+  document.getElementById('precioNum').textContent = total;
+
+  let html = '';
+  detalles.forEach(d => {
+    const v = d.gratis
+      ? `<span style="color:#22d4ef">${t.gratis}</span>`
+      : `<span>${d.valor >= 0 ? '+' : ''}${d.valor}€</span>`;
+    html += `<div class="desglose-item"><span>${d.label}</span>${v}</div>`;
+  });
+  html += `<div class="desglose-item"><span>${t.total}</span><span>${total}€/mes</span></div>`;
+  document.getElementById('desglose').innerHTML = html;
+
+  const l = document.getElementById('largo').value;
+  const a = document.getElementById('ancho').value;
+  const p = document.getElementById('prof').value;
+  const frec = lang === 'es' ? nombreFrecuenciaEs : nombreFrecuenciaEn;
+  const msg = encodeURIComponent(t.waMsg(l, a, p, volumen.toFixed(1), frec, total));
+  document.getElementById('btnWa').href = `https://wa.me/34661764002?text=${msg}`;
+
+  // Email button
+  const emailSubject = encodeURIComponent(t.emailSubject);
+  const emailBody = encodeURIComponent(t.emailMsg(l, a, p, volumen.toFixed(1), frec, total));
+  document.getElementById('btnEmail').href = `mailto:piscinasleah@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+  document.getElementById('resultado').classList.add('visible');
+  document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
