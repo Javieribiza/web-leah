@@ -9,13 +9,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:"Inter",sans-serif;background:#041624;color:#fff;overflow-x:hidden}
-
-/* SELECTOR IDIOMA */
 .lang-bar{position:fixed;top:16px;right:16px;z-index:100;display:flex;gap:8px}
 .lang-btn{padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.25);background:rgba(4,22,36,0.70);backdrop-filter:blur(10px);color:rgba(255,255,255,0.70);font-family:"Inter",sans-serif;font-size:0.75rem;font-weight:500;cursor:pointer;transition:all 0.2s}
 .lang-btn.activo{background:rgba(34,212,239,0.20);border-color:#22d4ef;color:#fff}
-
-/* HERO */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px 100px;background:url("piscina.jpeg") center center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,22,36,0.40) 0%,rgba(4,22,36,0.15) 30%,rgba(4,22,36,0.55) 70%,rgba(4,22,36,0.92) 100%)}
 .ondas{position:absolute;bottom:0;left:0;right:0;height:110px;overflow:hidden}
@@ -32,8 +28,6 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
 .linea{width:50px;height:2px;background:linear-gradient(90deg,transparent,#22d4ef,transparent);margin:30px auto}
 .scroll-hint{margin-top:30px;font-size:0.70rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.45);animation:parpadeo 2.5s ease-in-out infinite}
 @keyframes parpadeo{0%,100%{opacity:0.45}50%{opacity:0.90}}
-
-/* SERVICIOS */
 .servicios-section{position:relative;padding:90px 24px;background:url("piscina_2.jpeg") center center/cover no-repeat}
 .servicios-section::before{content:"";position:absolute;inset:0;background:rgba(4,18,30,0.82)}
 .section-label{text-align:center;font-size:0.68rem;letter-spacing:0.32em;text-transform:uppercase;color:#22d4ef;margin-bottom:12px;position:relative;z-index:1}
@@ -46,11 +40,10 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
 .servicio h3{font-family:"Playfair Display",serif;font-size:1.18rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
 .servicio p{font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.78}
 .servicio-tag{display:inline-block;margin-top:16px;padding:4px 13px;border-radius:50px;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;background:rgba(34,212,239,0.10);border:1px solid rgba(34,212,239,0.22);color:#22d4ef}
-
-/* CASOS */
-<div class="casos-section" style="position:relative;background:url('piscina_2.jpeg') center center/cover no-repeat;">
-  <div style="position:absolute;inset:0;background:rgba(4,18,30,0.82);z-index:0"></div>
-<div class="casos-grid" style="position:relative;z-index:1">
+.calculadora-mid{background:#041624;padding:70px 24px;text-align:center}
+.casos-section{position:relative;padding:90px 24px;background:url("piscina_2.jpeg") center center/cover no-repeat}
+.casos-section::before{content:"";position:absolute;inset:0;background:rgba(4,18,30,0.85)}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto;position:relative;z-index:1}
 .caso{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:20px;padding:28px 24px;text-align:center;transition:transform 0.25s,background 0.25s}
 .caso:hover{transform:translateY(-4px);background:rgba(255,255,255,0.09)}
 .caso-ico{font-size:36px;margin-bottom:16px}
@@ -62,8 +55,6 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
 .btn-urgencia{background:linear-gradient(135deg,#ef4444,#b91c1c);box-shadow:0 4px 20px rgba(239,68,68,0.30);animation:pulso 2.5s ease-in-out infinite}
 .btn-urgencia:hover{box-shadow:0 6px 28px rgba(239,68,68,0.55);animation:none}
 @keyframes pulso{0%,100%{box-shadow:0 4px 20px rgba(239,68,68,0.30)}50%{box-shadow:0 4px 30px rgba(239,68,68,0.60)}}
-
-/* CONTACTO */
 .contacto-section{background:#030f1a;padding:90px 24px;text-align:center}
 .contacto-desc{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.52);line-height:1.80;max-width:400px;margin:0 auto 44px}
 .botones{display:flex;flex-direction:column;gap:14px;max-width:400px;margin:0 auto}
@@ -75,8 +66,6 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
 .btn-calc:hover{box-shadow:0 10px 36px rgba(34,212,239,0.55);transform:translateY(-2px)}
 .btn-email{background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.18);color:#fff}
 .btn-email:hover{background:rgba(255,255,255,0.13);transform:translateY(-2px)}
-
-/* PIE */
 .pie{background:#020c14;padding:32px 24px;text-align:center}
 .pie p{font-size:0.70rem;color:rgba(255,255,255,0.25);letter-spacing:0.18em;text-transform:uppercase;line-height:2.2}
 .pie span{color:rgba(34,212,239,0.50)}
@@ -84,7 +73,7 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
 </head>
 <body>
 
-<!-- SELECTOR IDIOMA -->
+<!-- IDIOMA -->
 <div class="lang-bar">
   <button class="lang-btn activo" onclick="setLang('es',this)">🇪🇸 ES</button>
   <button class="lang-btn" onclick="setLang('en',this)">🇬🇧 EN</button>
@@ -115,19 +104,21 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
   </div>
 </div>
 
-<!-- CASOS -->
-<div class="casos-section">
-  <p class="section-label" id="casos-label">¿Tienes un problema?</p>
-  <div class="contacto-section" style="padding:50px 24px;text-align:center">
+<!-- CALCULADORA MID -->
+<div class="calculadora-mid">
   <p class="section-label" id="calc-label-mid">¿Cuánto cuesta tu piscina?</p>
   <h2 class="section-title" id="calc-title-mid">Calcula tu presupuesto</h2>
   <p class="contacto-desc" id="calc-desc-mid">Introduce las medidas de tu piscina y obtén un precio orientativo al instante.</p>
-  <a class="btn btn-calc" href="calculadora.html" style="max-width:400px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;padding:19px 28px;border-radius:50px;background:linear-gradient(135deg,#22d4ef,#0096b0);color:#fff;font-family:Inter,sans-serif;font-size:1rem;font-weight:500;text-decoration:none;box-shadow:0 6px 28px rgba(34,212,239,0.35)">
+  <a class="btn btn-calc" href="calculadora.html" style="max-width:400px;margin:0 auto">
     🔢 <span id="calc-btn-mid">Calcula el precio de tu piscina</span>
   </a>
 </div>
-  <h2 class="section-title" id="casos-title">Cuéntanoslo</h2>
-  <p class="section-sub" id="casos-sub">Selecciona tu situación y escríbenos directamente por WhatsApp. Te respondemos enseguida.</p>
+
+<!-- CASOS -->
+<div class="casos-section">
+  <p class="section-label" id="casos-label" style="position:relative;z-index:1">¿Tienes un problema?</p>
+  <h2 class="section-title" id="casos-title" style="position:relative;z-index:1">Cuéntanoslo</h2>
+  <p class="section-sub" id="casos-sub" style="position:relative;z-index:1">Selecciona tu situación y escríbenos directamente por WhatsApp. Te respondemos enseguida.</p>
   <div class="casos-grid">
     <div class="caso"><div class="caso-ico">🟢</div><h3 id="c1-title">Agua Verde</h3><p id="c1-desc">El agua ha cambiado de color y no sabes por qué. Lo analizamos y solucionamos rápido.</p><a class="btn-caso" id="c1-btn" href="https://wa.me/34661764002?text=Hola%2C%20tengo%20el%20agua%20de%20la%20piscina%20verde%20y%20necesito%20ayuda." target="_blank">💬 <span id="c1-btn-txt">Escríbenos</span></a></div>
     <div class="caso"><div class="caso-ico">⚙️</div><h3 id="c2-title">Problemas con el Motor</h3><p id="c2-desc">El motor hace ruido, no arranca o funciona mal. Diagnóstico y reparación en el menor tiempo posible.</p><a class="btn-caso" id="c2-btn" href="https://wa.me/34661764002?text=Hola%2C%20tengo%20un%20problema%20con%20el%20motor%20de%20mi%20piscina." target="_blank">💬 <span id="c2-btn-txt">Escríbenos</span></a></div>
@@ -144,7 +135,7 @@ h1 em{font-style:italic;font-weight:400;color:#22d4ef;display:block;font-size:cl
   <div class="botones">
     <a class="btn btn-calc" href="calculadora.html" id="btn-calc">🔢 <span id="btn-calc-txt">Calcula el precio de tu piscina</span></a>
     <a class="btn btn-wa" href="https://wa.me/34661764002?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20servicios." target="_blank">💬 <span id="btn-wa-txt">Escríbenos por WhatsApp</span></a>
-    <a class="btn btn-email" href="mailto:piscinasleah@gmail.com" id="btn-email">📧 <span id="btn-email-txt">Envíanos un Email</span></a>
+    <a class="btn btn-email" href="mailto:piscinasleah@gmail.com">📧 <span id="btn-email-txt">Envíanos un Email</span></a>
   </div>
 </div>
 
@@ -160,24 +151,25 @@ const T = {
     badge:"✦ Servicio Premium en Ibiza",
     heroDesc:"Expertos en el cuidado y mantenimiento de piscinas en toda la isla de Ibiza. Aguas cristalinas, tecnología de vanguardia y un servicio técnico de confianza para propietarios que exigen lo mejor.",
     scrollHint:"↓ Descubre nuestros servicios",
-    srvLabel:"¿Qué hacemos?", srvTitle:"Nuestros Servicios",
+    srvLabel:"¿Qué hacemos?",srvTitle:"Nuestros Servicios",
     srvSub:"Soluciones completas para que tu piscina esté siempre en perfecto estado, sin preocupaciones.",
-    s1t:"Mantenimiento Integral", s1d:"Control periódico del agua, limpieza de filtros, ajuste de pH y dosificación de productos. Tu piscina siempre lista para disfrutar durante toda la temporada.", s1tag:"Servicio regular",
-    s2t:"Electrólisis Salina e Hidrólisis", s2d:"Tecnología de última generación para un agua perfecta sin exceso de cloro. Ideal para pieles sensibles y villas de alto standing en Ibiza.", s2tag:"Alta tecnología",
-    s3t:"Servicio Técnico Especializado", s3d:"Localización y reparación de fugas, fontanería, electricidad y reparación de maquinaria. Resolvemos problemas con rapidez y profesionalidad.", s3tag:"Reparaciones",
-    s4t:"Iluminación LED y Domótica", s4d:"Instalación de iluminación LED subacuática y sistemas de control remoto. Transforma tu piscina en un espacio moderno y espectacular de noche.", s4tag:"Modernización",
-    casosLabel:"¿Tienes un problema?", casosTitle:"Cuéntanoslo",
+    s1t:"Mantenimiento Integral",s1d:"Control periódico del agua, limpieza de filtros, ajuste de pH y dosificación de productos. Tu piscina siempre lista para disfrutar durante toda la temporada.",s1tag:"Servicio regular",
+    s2t:"Electrólisis Salina e Hidrólisis",s2d:"Tecnología de última generación para un agua perfecta sin exceso de cloro. Ideal para pieles sensibles y villas de alto standing en Ibiza.",s2tag:"Alta tecnología",
+    s3t:"Servicio Técnico Especializado",s3d:"Localización y reparación de fugas, fontanería, electricidad y reparación de maquinaria. Resolvemos problemas con rapidez y profesionalidad.",s3tag:"Reparaciones",
+    s4t:"Iluminación LED y Domótica",s4d:"Instalación de iluminación LED subacuática y sistemas de control remoto. Transforma tu piscina en un espacio moderno y espectacular de noche.",s4tag:"Modernización",
+    calcLabelMid:"¿Cuánto cuesta tu piscina?",calcTitleMid:"Calcula tu presupuesto",
+    calcDescMid:"Introduce las medidas de tu piscina y obtén un precio orientativo al instante.",
+    calcBtnMid:"Calcula el precio de tu piscina",
+    casosLabel:"¿Tienes un problema?",casosTitle:"Cuéntanoslo",
     casosSub:"Selecciona tu situación y escríbenos directamente por WhatsApp. Te respondemos enseguida.",
-    c1t:"Agua Verde", c1d:"El agua ha cambiado de color y no sabes por qué. Lo analizamos y solucionamos rápido.",
-    c2t:"Problemas con el Motor", c2d:"El motor hace ruido, no arranca o funciona mal. Diagnóstico y reparación en el menor tiempo posible.",
-    c3t:"Problemas con el Cloro", c3d:"El agua pica en los ojos, huele demasiado o el cloro no se estabiliza. Te ayudamos a equilibrarlo.",
-    c4t:"Avería Urgente", c4d:"Necesitas asistencia inmediata. Estamos disponibles para emergencias en toda la isla de Ibiza.",
-    btnTxt:"Escríbenos", urgTxt:"Urgencia 24h",
-    cntLabel:"Hablemos", cntTitle:"Contacto Directo",
+    c1t:"Agua Verde",c1d:"El agua ha cambiado de color y no sabes por qué. Lo analizamos y solucionamos rápido.",
+    c2t:"Problemas con el Motor",c2d:"El motor hace ruido, no arranca o funciona mal. Diagnóstico y reparación en el menor tiempo posible.",
+    c3t:"Problemas con el Cloro",c3d:"El agua pica en los ojos, huele demasiado o el cloro no se estabiliza. Te ayudamos a equilibrarlo.",
+    c4t:"Avería Urgente",c4d:"Necesitas asistencia inmediata. Estamos disponibles para emergencias en toda la isla de Ibiza.",
+    btnTxt:"Escríbenos",urgTxt:"Urgencia 24h",
+    cntLabel:"Hablemos",cntTitle:"Contacto Directo",
     cntDesc:"Escríbenos sin compromiso. Te respondemos rápido y te damos presupuesto personalizado para tu piscina en Ibiza.",
-    calcTxt:"Calcula el precio de tu piscina",
-    waTxt:"Escríbenos por WhatsApp",
-    emailTxt:"Envíanos un Email",
+    calcTxt:"Calcula el precio de tu piscina",waTxt:"Escríbenos por WhatsApp",emailTxt:"Envíanos un Email",
     pieCopy:"© 2025 Piscinas Leah · Todos los derechos reservados",
     waGreen:"Hola%2C%20tengo%20el%20agua%20de%20la%20piscina%20verde%20y%20necesito%20ayuda.",
     waMotor:"Hola%2C%20tengo%20un%20problema%20con%20el%20motor%20de%20mi%20piscina.",
@@ -189,24 +181,25 @@ const T = {
     badge:"✦ Premium Service in Ibiza",
     heroDesc:"Experts in pool care and maintenance across the island of Ibiza. Crystal clear water, cutting-edge technology and a trusted technical service for owners who demand the best.",
     scrollHint:"↓ Discover our services",
-    srvLabel:"What we do", srvTitle:"Our Services",
+    srvLabel:"What we do",srvTitle:"Our Services",
     srvSub:"Complete solutions to keep your pool in perfect condition, all year round, without any worries.",
-    s1t:"Full Maintenance", s1d:"Regular water checks, filter cleaning, pH adjustment and chemical dosing. Your pool always ready to enjoy throughout the season.", s1tag:"Regular service",
-    s2t:"Salt Electrolysis & Hydrolysis", s2d:"Latest generation technology for perfect water without excess chlorine. Ideal for sensitive skin and high-end villas in Ibiza.", s2tag:"High technology",
-    s3t:"Specialist Technical Service", s3d:"Leak detection and repair, plumbing, electrical work and machinery repair. We solve complex problems quickly and professionally.", s3tag:"Repairs",
-    s4t:"LED Lighting & Home Automation", s4d:"Installation of underwater LED lighting and remote control systems. Transform your pool into a modern and spectacular space at night.", s4tag:"Modernisation",
-    casosLabel:"Got a problem?", casosTitle:"Tell us about it",
+    s1t:"Full Maintenance",s1d:"Regular water checks, filter cleaning, pH adjustment and chemical dosing. Your pool always ready to enjoy throughout the season.",s1tag:"Regular service",
+    s2t:"Salt Electrolysis & Hydrolysis",s2d:"Latest generation technology for perfect water without excess chlorine. Ideal for sensitive skin and high-end villas in Ibiza.",s2tag:"High technology",
+    s3t:"Specialist Technical Service",s3d:"Leak detection and repair, plumbing, electrical work and machinery repair. We solve complex problems quickly and professionally.",s3tag:"Repairs",
+    s4t:"LED Lighting & Home Automation",s4d:"Installation of underwater LED lighting and remote control systems. Transform your pool into a modern and spectacular space at night.",s4tag:"Modernisation",
+    calcLabelMid:"How much does your pool cost?",calcTitleMid:"Calculate your quote",
+    calcDescMid:"Enter your pool measurements and get an instant price estimate.",
+    calcBtnMid:"Calculate your pool price",
+    casosLabel:"Got a problem?",casosTitle:"Tell us about it",
     casosSub:"Select your situation and message us directly on WhatsApp. We respond straight away.",
-    c1t:"Green Water", c1d:"The water has changed colour and you don't know why. We analyse and solve it quickly.",
-    c2t:"Motor Problems", c2d:"The motor is noisy, won't start or is not working properly. Diagnosis and repair as quickly as possible.",
-    c3t:"Chlorine Problems", c3d:"The water stings your eyes, smells too strong or the chlorine won't stabilise. We'll help you balance it.",
-    c4t:"Emergency Breakdown", c4d:"You need immediate assistance. We are available for emergencies across the whole island of Ibiza.",
-    btnTxt:"Message us", urgTxt:"Emergency 24h",
-    cntLabel:"Let's talk", cntTitle:"Direct Contact",
+    c1t:"Green Water",c1d:"The water has changed colour and you don't know why. We analyse and solve it quickly.",
+    c2t:"Motor Problems",c2d:"The motor is noisy, won't start or is not working properly. Diagnosis and repair as quickly as possible.",
+    c3t:"Chlorine Problems",c3d:"The water stings your eyes, smells too strong or the chlorine won't stabilise. We'll help you balance it.",
+    c4t:"Emergency Breakdown",c4d:"You need immediate assistance. We are available for emergencies across the whole island of Ibiza.",
+    btnTxt:"Message us",urgTxt:"Emergency 24h",
+    cntLabel:"Let's talk",cntTitle:"Direct Contact",
     cntDesc:"Message us with no obligation. We respond quickly and give you a personalised quote for your pool in Ibiza.",
-    calcTxt:"Calculate your pool price",
-    waTxt:"Message us on WhatsApp",
-    emailTxt:"Send us an Email",
+    calcTxt:"Calculate your pool price",waTxt:"Message us on WhatsApp",emailTxt:"Send us an Email",
     pieCopy:"© 2025 Piscinas Leah · All rights reserved",
     waGreen:"Hello%2C%20my%20pool%20water%20has%20turned%20green%20and%20I%20need%20help.",
     waMotor:"Hello%2C%20I%20have%20a%20problem%20with%20my%20pool%20motor.",
@@ -216,56 +209,60 @@ const T = {
   }
 };
 
-function setLang(l, btn) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('activo'));
+function setLang(l,btn){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('activo'));
   btn.classList.add('activo');
-  document.documentElement.lang = l;
-  const t = T[l];
-  document.getElementById('badge').textContent = t.badge;
-  document.getElementById('hero-desc').textContent = t.heroDesc;
-  document.getElementById('scroll-hint').textContent = t.scrollHint;
-  document.getElementById('srv-label').textContent = t.srvLabel;
-  document.getElementById('srv-title').textContent = t.srvTitle;
-  document.getElementById('srv-sub').textContent = t.srvSub;
-  document.getElementById('s1-title').textContent = t.s1t;
-  document.getElementById('s1-desc').textContent = t.s1d;
-  document.getElementById('s1-tag').textContent = t.s1tag;
-  document.getElementById('s2-title').textContent = t.s2t;
-  document.getElementById('s2-desc').textContent = t.s2d;
-  document.getElementById('s2-tag').textContent = t.s2tag;
-  document.getElementById('s3-title').textContent = t.s3t;
-  document.getElementById('s3-desc').textContent = t.s3d;
-  document.getElementById('s3-tag').textContent = t.s3tag;
-  document.getElementById('s4-title').textContent = t.s4t;
-  document.getElementById('s4-desc').textContent = t.s4d;
-  document.getElementById('s4-tag').textContent = t.s4tag;
-  document.getElementById('casos-label').textContent = t.casosLabel;
-  document.getElementById('casos-title').textContent = t.casosTitle;
-  document.getElementById('casos-sub').textContent = t.casosSub;
-  document.getElementById('c1-title').textContent = t.c1t;
-  document.getElementById('c1-desc').textContent = t.c1d;
-  document.getElementById('c1-btn-txt').textContent = t.btnTxt;
-  document.getElementById('c1-btn').href = "https://wa.me/34661764002?text=" + t.waGreen;
-  document.getElementById('c2-title').textContent = t.c2t;
-  document.getElementById('c2-desc').textContent = t.c2d;
-  document.getElementById('c2-btn-txt').textContent = t.btnTxt;
-  document.getElementById('c2-btn').href = "https://wa.me/34661764002?text=" + t.waMotor;
-  document.getElementById('c3-title').textContent = t.c3t;
-  document.getElementById('c3-desc').textContent = t.c3d;
-  document.getElementById('c3-btn-txt').textContent = t.btnTxt;
-  document.getElementById('c3-btn').href = "https://wa.me/34661764002?text=" + t.waCloro;
-  document.getElementById('c4-title').textContent = t.c4t;
-  document.getElementById('c4-desc').textContent = t.c4d;
-  document.getElementById('c4-btn-txt').textContent = t.urgTxt;
-  document.getElementById('c4-btn').href = "https://wa.me/34661764002?text=" + t.waUrgent;
-  document.getElementById('cnt-label').textContent = t.cntLabel;
-  document.getElementById('cnt-title').textContent = t.cntTitle;
-  document.getElementById('cnt-desc').textContent = t.cntDesc;
-  document.getElementById('btn-calc-txt').textContent = t.calcTxt;
-  document.getElementById('btn-wa-txt').textContent = t.waTxt;
-  document.getElementById('btn-email-txt').textContent = t.emailTxt;
-  document.getElementById('pie-copy').innerHTML = t.pieCopy.replace('·','<span>·</span>');
-  document.querySelector('.btn-wa').href = "https://wa.me/34661764002?text=" + t.waGeneral;
+  document.documentElement.lang=l;
+  const t=T[l];
+  document.getElementById('badge').textContent=t.badge;
+  document.getElementById('hero-desc').textContent=t.heroDesc;
+  document.getElementById('scroll-hint').textContent=t.scrollHint;
+  document.getElementById('srv-label').textContent=t.srvLabel;
+  document.getElementById('srv-title').textContent=t.srvTitle;
+  document.getElementById('srv-sub').textContent=t.srvSub;
+  document.getElementById('s1-title').textContent=t.s1t;
+  document.getElementById('s1-desc').textContent=t.s1d;
+  document.getElementById('s1-tag').textContent=t.s1tag;
+  document.getElementById('s2-title').textContent=t.s2t;
+  document.getElementById('s2-desc').textContent=t.s2d;
+  document.getElementById('s2-tag').textContent=t.s2tag;
+  document.getElementById('s3-title').textContent=t.s3t;
+  document.getElementById('s3-desc').textContent=t.s3d;
+  document.getElementById('s3-tag').textContent=t.s3tag;
+  document.getElementById('s4-title').textContent=t.s4t;
+  document.getElementById('s4-desc').textContent=t.s4d;
+  document.getElementById('s4-tag').textContent=t.s4tag;
+  document.getElementById('calc-label-mid').textContent=t.calcLabelMid;
+  document.getElementById('calc-title-mid').textContent=t.calcTitleMid;
+  document.getElementById('calc-desc-mid').textContent=t.calcDescMid;
+  document.getElementById('calc-btn-mid').textContent=t.calcBtnMid;
+  document.getElementById('casos-label').textContent=t.casosLabel;
+  document.getElementById('casos-title').textContent=t.casosTitle;
+  document.getElementById('casos-sub').textContent=t.casosSub;
+  document.getElementById('c1-title').textContent=t.c1t;
+  document.getElementById('c1-desc').textContent=t.c1d;
+  document.getElementById('c1-btn-txt').textContent=t.btnTxt;
+  document.getElementById('c1-btn').href="https://wa.me/34661764002?text="+t.waGreen;
+  document.getElementById('c2-title').textContent=t.c2t;
+  document.getElementById('c2-desc').textContent=t.c2d;
+  document.getElementById('c2-btn-txt').textContent=t.btnTxt;
+  document.getElementById('c2-btn').href="https://wa.me/34661764002?text="+t.waMotor;
+  document.getElementById('c3-title').textContent=t.c3t;
+  document.getElementById('c3-desc').textContent=t.c3d;
+  document.getElementById('c3-btn-txt').textContent=t.btnTxt;
+  document.getElementById('c3-btn').href="https://wa.me/34661764002?text="+t.waCloro;
+  document.getElementById('c4-title').textContent=t.c4t;
+  document.getElementById('c4-desc').textContent=t.c4d;
+  document.getElementById('c4-btn-txt').textContent=t.urgTxt;
+  document.getElementById('c4-btn').href="https://wa.me/34661764002?text="+t.waUrgent;
+  document.getElementById('cnt-label').textContent=t.cntLabel;
+  document.getElementById('cnt-title').textContent=t.cntTitle;
+  document.getElementById('cnt-desc').textContent=t.cntDesc;
+  document.getElementById('btn-calc-txt').textContent=t.calcTxt;
+  document.getElementById('btn-wa-txt').textContent=t.waTxt;
+  document.getElementById('btn-email-txt').textContent=t.emailTxt;
+  document.getElementById('pie-copy').innerHTML=t.pieCopy.replace('·','<span>·</span>');
+  document.querySelector('.btn-wa').href="https://wa.me/34661764002?text="+t.waGeneral;
 }
 </script>
 </body>
